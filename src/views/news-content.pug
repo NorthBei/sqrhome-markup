@@ -1,0 +1,14 @@
+extends @templates/base.pug
+
+block append styles
+  link(href=require("@styles/news-content.page.scss"), rel="stylesheet", type="text/css")
+
+block content
+  section#content-title
+    h1 期間限定！adidas Originals經典概念店開幕
+    time.d-block.text-right.mb-2.font-weight-bold 2018.01.04
+  section#content-body
+    img.img-fluid(src=require("@images/news-test.png"))
+    p Significant number of patients that comes to our office presents with concerns about the aperance of their upper face. They commonly complain that they are often told that they look tired, sad or even angry when they don’t feel these emotions. This people usually attribute this negative emotional state with the appearance of their upper eye lids and will usually request for upper blepharoplasty. This false perception of psychological pessimism of the face is due to the appearance of the upper eye lid which is affected by the brow position. The eyebrow which is a distinguishing portion of our forehead, contain hair follicle. The human eye that includes the eyebrow and eyelid is responsible for expressing one’s non verbal emotions. The contour, shape and position of the eyebrow can suggest sadness, anger, confusion and alertness. The eyebrows droop down as a person ages, this causes fullness and hooding of the upper eye lid. This change of the brow position is often accompanied by deep transverse lines of the forehead, vertical lines at the glabelar area and crow’s feet at the lateral side of the eyes.
+
+  +main-button("Back to List")

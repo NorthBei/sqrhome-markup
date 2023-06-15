@@ -1,0 +1,93 @@
+@use './rwd.mixins' as rwd;
+@use './arrow.mixins' as arrow;
+@use './animation.scss';
+
+#footer {
+  margin-top: 80px;
+  background: black;
+  font-family: NotoSansCJKtc-Light;
+}
+
+#footer-top {
+  height: 305px;
+  position: relative;
+  overflow: visible;
+}
+
+#footer-bottom {
+  line-height: 95px;
+  height: 95px;
+  background: #1b1b1b;
+  font-size: 14px;
+}
+
+.footer-cat-title {
+  font-family: BebasNeue;
+  font-size: 18px;
+}
+
+.footer-cat-list {
+  font-size: 14px;
+  display: flex;
+  flex-flow: column wrap;
+  height: 130px;
+
+  > a {
+    margin-bottom: 10px;
+    margin-right: 50px;
+    color: white;
+    text-decoration: none;
+    white-space: nowrap;
+
+    &:hover, &.active {
+      color: #f29600;
+    }
+  }
+}
+
+#footer-totop {
+  position: absolute;
+  right: 100px;
+  top: -64px;
+
+  @include rwd.pad-portrait {
+    right: 40px;
+  }
+
+  .hand {
+    animation: float-y 0.8s ease-in-out infinite alternate;
+  }
+
+  .button {
+    cursor: pointer;
+    height: 8px;
+    width: 30px;
+    flex: 8px 0 0;
+    background: #f29600;
+    border-radius: 5px 5px 0 0;
+    position: relative;
+  
+    &::after {
+      content: "";
+      height: 5px;
+      width: 40px;
+      flex: 5px 0 0;
+      background: black;
+      position: absolute;
+      left: 50%;
+      top: 8px;
+      transform: translate(-50%, 0);
+    }
+  }
+  
+  #arrow-wrapper {
+    width: 23px;
+    margin-bottom: 15px;
+  
+    @include rwd.pad-portrait {
+      margin-bottom: 43px;
+    }
+  
+    @include arrow.arrow-list('.arrow', #f29600)
+  }
+}

@@ -1,0 +1,63 @@
+extends @templates/banner.pug
+
+block prepend cap
+
+block append styles
+  link(href=require("@styles/media-content.page.scss"), rel="stylesheet", type="text/css")
+
+block append scripts
+
+block content
+  #video-wrapper.row
+    .col-md-1.d-none.d-md-flex.justify-content-center.align-items-center
+      a(href="http://")
+        img.media-arrow(src=require("@images/arrow-left.png"))
+    .col-sm-12.col-md-10
+      .embed-responsive.embed-responsive-16by9
+        iframe.embed-responsive-item(allowfullscreen="", src="https://www.youtube.com/embed/1M3JvH3jwE8?rel=0")
+
+    .col-md-1.d-none.d-md-flex.justify-content-center.align-items-center
+      a(href="http://")
+        img.media-arrow(src=require("@images/arrow-right.png"))
+
+  #video-content.row
+    .col-md-1
+    .col-md-10.main-content
+      .video-info
+        .title 麻吉弟弟 [ MACHI DIDI 2.0 (大人物) ft. 熊仔 ] Official Audio
+        .others
+          span.mr-3 Bobby Bass
+          span.date 07/23/2017
+      section.video-intro
+        p If you live in New York City or travel to and from New York City a lot, you know all about the traffic there. Getting places is often next to impossible, even with the gazillion yellow cabs. If you’re like me you often look with envy at those shiny limousines with their unformed drivers and wish you could sit in one. Well, you can. New York limo service is more affordable than you think, whether it’s for Newark airport transportation, LaGuardia airport transportation, or to drive wherever you wish to go.
+        p Every time I hail a cab in New York City or wait for one at the airports, I hope I’ll be lucky enough to get one that’s halfway decent and that the driver actually speaks English. I have spent many anxious moments wondering if I ever get to my destination. Or whether I’d get ripped off. Even if all goes well, I can’t say I can remember many rides in New York cabs that were very pleasant. And given how much they cost by now, going with a limo makes ever more sense.
+
+      section.share
+        img.sharing-icon(src=require("@images/icon-share.svg"))
+
+        img#fb-icon.sharing-icon(src=require("@images/icon-facebook.svg?inline"))
+
+        img#gplus-icon.sharing-icon(src=require("@images/icon-google-plus.svg?inline"))
+
+      section.tags
+        span.title.mr-4 TAGS
+        span.tag-name Game
+        span.tag-name Life
+
+    .col-md-1
+
+  .row
+    .col-2.d-flex.justify-content-center.align-items-center.d-md-none
+      a(href="http://")
+        img.media-arrow(src=require("@images/arrow-left.png"))
+    .col-8.col-md-12
+      +main-button("Back to List")
+      style.
+        @media only screen and (max-width: 576px) {
+          .main-button {
+            margin: 50px 0;
+          }
+        }
+    .col-2.d-flex.justify-content-center.align-items-center.d-md-none
+      a(href="http://")
+        img.media-arrow(src=require("@images/arrow-right.png"))

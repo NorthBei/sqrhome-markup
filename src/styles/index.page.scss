@@ -1,0 +1,1054 @@
+@use './rwd.mixins' as rwd;
+@use './arrow.mixins' as arrow;
+@use './animation';
+@use './utils';
+
+// Global Section
+
+@font-face {
+  font-family: Goudy;
+  src: url("@fonts/Goudy Old Style Regular.ttf");
+}
+
+@font-face {
+  font-family: HanWangMingBlack;
+  src: url("@fonts/HanWangMingBlack.ttf");
+}
+
+@font-face {
+  font-family: "HiraginoSans-W3";
+  src: url("@fonts/Hiragino-Sans-GB-W3.otf");
+}
+
+.row {
+  margin-left: 0;
+  margin-right: 0;
+}
+
+.section-wrapper {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  min-height: 75vh;
+  text-align: center;
+  padding: 100px 0;
+  box-sizing: border-box;
+
+  .section-title-wrapper {
+    margin-bottom: 50px;
+
+    .title {
+      font-size: 36px;
+      margin-bottom: 0;
+      font-family: HanWangMingBlack;
+    }
+
+    .subtitle {
+      font-size: 20px;
+      width: 250px;
+      border-top: 2px solid;
+      margin: 0 auto;
+      font-family: "HiraginoSans-W3";
+    }
+  }
+}
+
+#works .section-title-wrapper,
+#contact .section-title-wrapper {
+  margin-bottom: 115px;
+
+  @include rwd.pad-portrait {
+    margin-bottom: 70px;
+  }
+}
+
+#corporation .section-title-wrapper,
+#team .section-title-wrapper {
+  margin-bottom: 85px;
+
+  @include rwd.pad-portrait {
+    margin-bottom: 55px;
+  }
+}
+
+// Fold Section
+#intro-anim {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  z-index: 90;
+  background: white;
+  overflow: hidden;
+  transition: transform 0.3s;
+  transform: translateY(100%);
+
+  &.normal {
+    transform: translateY(0);
+  }
+}
+
+#intro-anim, #showing {
+  > svg {
+    @extend %absolute-center;
+
+    width: 100vw !important;
+    height: auto !important;
+  }
+
+  &.phone > svg {
+    @extend %absolute-center;
+
+    height: 100vh !important;
+    width: auto !important;
+  }
+}
+
+.whole-cover {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100vh;
+  transition: all 0.1s ease-in;
+  overflow: hidden;
+  z-index: 60;
+}
+
+#anim-wrapper {
+  margin-bottom: 100vh;
+}
+
+#paint-logo {
+  display: flex;
+  justify-content: center;
+  align-items: flex-end;
+  opacity: 0;
+
+  &.z-index-back {
+    z-index: -10;
+  }
+}
+
+#brand-logo {
+  &.z-index-back {
+    display: none !important;
+  }
+}
+
+#showing {
+  &.z-index-back {
+    z-index: -10;
+  }
+}
+
+#exclamations {
+  position: absolute;
+  transform: translateY(-100%);
+
+  & > img {
+    transform-origin: center bottom;
+    transform: scale(0);
+    animation: heartbeat 0.2s ease-out both;
+        
+    @include rwd.mobile {
+      width: 127px;
+    }
+  }
+}
+
+#mark {
+  @include rwd.mobile {
+    width: 36px;
+  }
+}
+
+#company-name {
+  @include rwd.mobile {
+    width: 231px;
+  }
+}
+
+#sqr-big-logo {
+  @extend %absolute-center;
+
+  max-width: 700px;
+  width: 90%;
+}
+
+#mouse-anim-wrapper {
+  transform: scale(0.7);
+
+  .mouse-item {
+    animation: mouse-float 0.5s ease-in-out infinite alternate-reverse;
+  }
+
+  .mouse-indicator-list {
+    transform: rotate(180deg);
+    
+    @include arrow.arrow-list('.indicator', black) {
+      left: 6px;  
+    }
+  }
+}
+
+// About Section
+
+#about-content {
+  .company-info {
+    height: 400px;
+    position: relative;
+    width: 100%;
+
+    svg#about-dialog text {
+      transition: all 0.4s;
+      transition-delay: 0.4s;
+    }
+
+    .company-intro {
+      position: absolute;
+      top: 50%;
+      transform: translateY(-50%) scale(0);
+      text-align: center;
+      font-family: NotoSansCJKtc-Black;
+      font-size: 98px;
+      color: #000;
+      line-height: 127px;
+      height: 254px;
+      min-height: 164px; /* same as #about-content .company-info height */
+      background: rgb(255 255 255 / 60%);
+      transition: all 0.2s;
+      transition-delay: 0.4s;
+      opacity: 0;
+      z-index: -1;
+
+      @include rwd.mobile {
+        font-size: 60px;
+        line-height: 68px;
+        height: 136px;
+      }
+    }
+
+    &.ease-in {
+      svg#about-dialog text {
+        fill: white;
+      }
+
+      .company-intro {
+        transform: translateY(-50%) scale(1);
+        opacity: 1;
+        z-index: 2;
+      }
+    }
+  }
+
+  .about-link {
+    font-family: NotoSansCJKtc-Light;
+    font-size: 20px;
+    color: black;
+    text-decoration: underline;
+  }
+}
+
+#play-button {
+  margin-top: 40px;
+  height: 70px;
+  width: 70px;
+  border-radius: 50%;
+  position: relative;
+  cursor: pointer;
+
+  &:hover {
+    background-image: repeating-linear-gradient(114deg, black, black 1px, white 1px, white 5px);
+  }
+
+  &::before {
+    content: "";
+    width: 0;
+    height: 0;
+    border-style: solid;
+    border-width: 16px 0 16px 26px;
+    border-color: transparent transparent transparent #fff;
+    position: absolute;
+    top: 17%;
+    left: 26%;
+    z-index: 2;
+  }
+
+  &::after {
+    content: "";
+    position: absolute;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    transform: translate(-8px, -8px);
+    border-radius: 50%;
+    background: black;
+  }
+}
+
+// Serve Section
+
+#serve {
+  .window {
+    padding-bottom: 50%;
+    position: relative;
+    overflow: hidden;
+
+    @include rwd.pad-portrait {
+      padding-bottom: 100%;
+    }
+
+    &.left {
+      @include rwd.pad-portrait {
+        margin-left: 2px;
+        margin-bottom: 8px;
+      }
+    }
+  }
+
+  .serve-anim {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 99%;
+  }
+
+  .back-arrow {
+    height: 64px;
+    width: 64px;
+    background: white;
+    border-radius: 50%;
+    position: absolute;
+    top: 0;
+    z-index: 20;
+    cursor: pointer;
+
+    @include rwd.pad-portrait {
+      height: 41px;
+      width: 41px;
+    }
+  }
+}
+
+#serve-main {
+  position: relative;
+  transition: all 0.3s;
+
+  &.slide-left {
+    transform: translateX(-100vw);
+  }
+
+  &.slide-right {
+    transform: translateX(100vw);
+  }
+}
+
+#serve1-cover {
+  padding-bottom: 38%;
+
+  &::before {
+    content: "";
+    position: absolute;
+    left: -4%;
+    bottom: -30%;
+    width: 103%;
+    padding-bottom: 22%;
+    transform: rotate(-12.2deg);
+  }
+}
+
+#serve2-cover {
+  padding-bottom: 55%;
+
+  &::before {
+    content: "";
+    position: absolute;
+    left: 0;
+    bottom: -5%;
+    width: 100%;
+    padding-bottom: 7%;
+    transform: rotate(3.5deg);
+  }
+}
+
+/* media video button */
+#btn-video {
+  /* 影音傳送: */
+  font-family: NotoSansCJKtc-Light;
+  font-size: 12px;
+  color: #f29600;
+
+  .btn {
+    /* 按鈕: */
+    width: 38px;
+    height: 38px;
+    border-radius: 50%;
+    background: #f29600;
+    border: 6px solid #000;
+    box-shadow: 0 3px 2px 0 rgb(0 0 0 / 50%);
+    position: relative;
+
+    &:active {
+      box-shadow: inset 0 0 7px 0 black;
+    }
+
+    &::after {
+      content: "";
+      position: absolute;
+      top: -2px;
+      left: -2px;
+      width: inherit;
+      height: inherit;
+      border-radius: 50%;
+      background-image: repeating-linear-gradient(114deg, black, black 1px, white 1px, white 5px);
+      z-index: -1;
+    }
+  }
+
+  .hand {
+    position: absolute;
+    left: 3px;
+    top: -50px;
+    animation: float-y 0.8s ease-in-out infinite alternate;
+  }
+}
+
+#bottom-dialog-img {
+  max-width: 23%;
+}
+
+#bottom-dialog-wrapper {
+  background-image: url("@images/對話框-desktop.png");
+  background-size: cover;
+  height: 176px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  text-align: left;
+
+  p {
+    width: 80%;
+    margin-left: 10%;
+    margin-bottom: 0;
+  }
+
+  @include rwd.laptop {
+    background-image: url("@images/對話框-tablet.png");
+    width: 52%;
+    min-width: 572px;
+  }
+}
+
+#digital-prod,
+#creative,
+#ads {
+  position: absolute;
+  top: 0;
+  left: 0;
+  padding: 0 5px;
+}
+
+#digital-prod,
+#creative {
+  transform: translateX(-100vw);
+  background: white;
+  display: none;
+
+  &.z-index-front {
+    visibility: visible;
+    display: block;
+    z-index: 10;
+  }
+}
+
+#digital-prod {
+  .back-arrow {
+    right: 3px;
+    transform: translateX(42%) rotate(180deg);
+  }
+
+  .lottie-anim {
+    border: 11px solid black;
+  }
+}
+
+
+
+#creative {
+  border: 11px solid black;
+
+  .back-arrow {
+    top: -11px;
+    right: -4px;
+    transform: translateX(50%) rotate(180deg);
+  }
+
+  .company-name {
+    @extend %absolute-center;
+    @extend %circle-logo;
+
+    @include rwd.pad-landscape {
+      width: 158px;
+      height: 158px;
+      line-height: 158px;
+    }
+
+    @include rwd.pad-portrait {
+      left: initial;
+      right: 0;
+      transform: translate(0%, -50%);
+      line-height: 160px;
+      height: 198px;
+      width: 98px;
+      border-radius: 98px 0 0 98px;
+    }
+  }
+
+  .content-wrapper {
+    position: absolute;
+    top: 0;
+    width: 100%;
+    color: #000;
+  }
+
+  .content {
+    height: 100%;
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+
+    @include rwd.pad-portrait {
+      height: 50%;
+
+      &:not(#media) {
+        order: 1;
+      }
+
+      &#media {
+        justify-content: flex-end;
+        padding-top: 15%;
+        order: 2;
+      }
+
+      &#media .spilt,
+      &#project .spilt {
+        transform: rotate(-26deg);
+      }
+
+      &#brand {
+        justify-content: flex-end;
+        padding-bottom: 15%;
+      }
+        
+      &#social,
+      &#project {
+        justify-content: flex-start;
+      }
+    }
+
+    .zh {
+      font-family: HanWangMingBlack;
+      font-size: 60px;
+      line-height: 65px;
+
+      @include rwd.laptop {
+        font-size: 3.5vw;
+        line-height: 4vw;
+      }
+
+      @include rwd.pad-portrait {
+        font-size: 8vw;
+        line-height: 9vw;
+      }
+    }
+
+    .spilt {
+      height: 150px;
+      width: 1px;
+      background: black;
+      display: inline-block;
+      transform: rotate(26deg);
+      margin-right: 30px;
+
+      @include rwd.laptop {
+        height: 100px;
+      }
+
+      @include rwd.pad-portrait {
+        margin-left: 15px;
+      }
+
+      @include rwd.mobile {
+        height: 80px;
+        margin: 0 12px;
+      }
+    }
+
+    .en {
+      font-family: Goudy;
+      font-size: 50px;
+      line-height: 55px;
+
+      @include rwd.laptop {
+        font-size: 3vw;
+        line-height: 3.5vw;
+      }
+
+      @include rwd.pad-portrait {
+        font-size: 5vw;
+        line-height: 5.5vw;
+      }
+    }
+  }
+}
+
+#ads {
+  width: 100%;
+  transform: translateX(100vw);
+  perspective: 1000px;
+
+  .border-bold {
+    border: 11px solid black;
+  }
+
+  .back-arrow {
+    left: 0;
+    transform: translateX(-44%);
+  }
+
+  .title-block {
+    /* 流程：所有廣告曝光及內容均以紅紅數位配合: */
+    background: black;
+    font-family: NotoSansCJKtc-Bold;
+    font-size: 25px;
+    color: #f29600;
+    padding: 46px 0;
+    position: relative;
+        
+    p {
+      max-width: 785px;
+      margin: auto;
+      text-align: left;
+      padding: 0 3%;
+
+      @include rwd.pad-portrait {
+        font-size: 18px;
+        width: 82%;
+      }
+    }
+  }
+
+  .company-name {
+    @extend %circle-logo;
+
+    top: 0;
+    right: -99px;
+  }
+
+  .item {
+    .text-wrapper {
+      text-align: left;
+      margin-left: 16px;
+    }
+
+    .main-text {
+      font-family: NotoSansCJKtc-Bold;
+      font-size: 40px;
+      color: #000;
+
+      @include rwd.pad-portrait {
+        font-size: 25px;
+      }
+    }
+
+    .sub-text {
+      font-family: NotoSansCJKtc-Light;
+      font-size: 20px;
+      color: #000;
+
+      @include rwd.pad-portrait {
+        font-size: 14px;
+      }
+    }
+  }
+
+  .folding-block {
+    transform-origin: top center;
+    transition: all 0.4s;
+    transform: rotateX(-94deg);
+
+    &.play {
+      transform: rotateX(0);
+    }
+  }
+
+  #brand, #film {
+    overflow: hidden;
+  }
+
+  #brand .folding-block {
+    transition-delay: 1s;
+  }
+
+  #film .folding-block {
+    transition-delay: 2s;
+  }
+}
+
+// Works Section
+#cats {
+  text-align: center;
+    
+  a {
+    color: black;
+  }
+
+  #cat-center {
+    justify-content: center;
+    align-self: flex-end;
+    
+    > img {
+      max-height: 187px;
+      height: 15vw;
+      margin-bottom: -40px;
+    }
+  }
+
+  .dialog-wrapper {
+    position: relative;
+    height: 150px;
+    max-height: 14vw;
+    margin-bottom: -50px;
+    
+    .dialog {
+      position: absolute;
+      bottom: 0;
+      height: 100%;
+      transform: scale(1);
+      transition: all 0.2s;
+    
+      &.small {
+        height: 85%;
+        transition-delay: 0.2s;
+      }
+    
+      &.big {
+        transform: scale(0);
+        transition-delay: 0s;
+      }
+    }
+    
+    &.left .dialog {
+      align-self: flex-end;
+      right: 0;
+      transform-origin: left bottom;
+    }
+    
+    &.right .dialog {
+      align-self: flex-start;
+      left: 0;
+      transform-origin: right bottom;
+    }
+    
+    &:hover.active {
+      .dialog.small {
+        transform: scale(0);
+        transition-delay: 0s;
+      }
+    
+      .dialog.big {
+        transform: scale(1);
+        transition-delay: 0.2s;
+      }
+    }
+    
+    @include rwd.pad-portrait {
+      max-height: initial;
+      display: flex;
+      justify-content: center;
+      height: 34vw;
+    
+      &.left .dialog,
+      &.right .dialog {
+        align-self: center;
+        left: initial;
+        right: initial;
+        transform-origin: center bottom;
+      }
+    }
+  }
+}
+
+// Corporation Section
+
+#corporation {
+  #corporation-sample {
+    width: 100%;
+  }
+
+  .scrollbar {
+    position: absolute;
+    height: 100%;
+    display: flex;
+    align-items: center;
+    z-index: 10;
+    transition: 0.3s all ease-in-out;
+
+    &.scrollbar-right {
+      right: calc(50% - 22px);
+      top: 0;
+      bottom: 0;
+
+      &.open {
+        right: 0;
+      }
+
+      &::after {
+        left: 0;
+      }
+    }
+
+    &.scrollbar-left {
+      top: 0;
+      bottom: 0;
+      left: calc(50% - 22px);
+
+      &.open {
+        left: 0;
+      }
+
+      &::after {
+        right: 0;
+      }
+    }
+
+    &::after {
+      content: "";
+      background: white;
+      position: absolute;
+      height: 101%;
+      width: 50vw;
+      z-index: -1;
+    }
+
+    .scrollbar-image {
+      height: 110%;
+      width: 22px;
+    }
+  }
+
+
+  #corporation-list {
+    border: 4px solid;
+    display: flex;
+    align-items: center;
+    padding: 45px 0;
+    margin: 0;
+
+    .slick-arrow {
+      height: 80px;
+      margin: 0 40px;
+      cursor: pointer;
+
+      @include rwd.pad-portrait {
+        height: 40px;
+        margin: 0 10px;
+      }
+    }
+
+    .slick-dots {
+      display: flex;
+      justify-content: center;
+      bottom: 15px;
+    }
+  }
+
+  .corpor-list-page {
+    display: flex;
+    outline: none;
+  }
+
+  .corpor-list-col {
+    display: flex;
+    justify-content: center;
+    flex-wrap: wrap;
+    max-width: 680px;
+    margin: auto;
+    width: 100%;
+  }
+
+  .corpor-logo-wrapper {
+    width: 30%;
+    max-width: 215px;
+    margin: 5px;
+
+    @include rwd.pad-portrait {
+      width: 45%;
+    }
+  }
+
+  .corpor-logo {
+    border: 4px solid;
+    padding-bottom: 100%;
+    position: relative;
+
+    .corpor-logo-image {
+      position: absolute;
+      top: 50%;
+      left: 50%;
+      transform: translate(-50%, -50%);
+      max-width: 60%;
+      width: 100%;
+    }
+  }
+}
+
+// Team Section
+
+.group-member {
+  .member-image {
+    width: 100%;
+    height: auto;
+    max-width: 200px;
+  }
+
+  .member-name {
+    font-size: 18px;
+    font-family: NotoSansCJKtc-Black;
+  }
+
+  .member-photo-wrapper {
+    position: relative;
+  }
+
+  .member-cat {
+    position: absolute;
+    left: 50%;
+    top: 50%;
+    transform: translate(-50%, -50%);
+    transition: all 0.6s ease-in-out;
+    opacity: 1;
+    visibility: visible;
+  }
+
+  .group-member-star-rate {
+    font-size: 24px;
+    position: relative;
+
+    span {
+      margin: 0 3px;
+    }
+
+    .star-real {
+      position: absolute;
+      top: 0;
+      max-width: 0;
+      transition: all 0.3s ease-in-out;
+      overflow: hidden;
+    }
+  }
+
+  &:hover {
+    .member-cat {
+      opacity: 0;
+      visibility: hidden;
+    }
+
+    .group-member-star-rate .star-real {
+      max-width: 100%;
+    }
+  }
+
+  @include rwd.pad-portrait {
+    max-height: 0;
+    transition: all 0.3s ease-in-out;
+    overflow: hidden;
+  }
+}
+
+
+.group-member-show {
+  @include rwd.pad-portrait {
+    max-height: 500px;
+  }
+}
+
+// Union Section
+
+body {
+  overflow-x: hidden;
+}
+
+#union {
+  .calligraphy-react {
+    width: 100vw;
+    padding-bottom: 57%;
+    position: relative;
+    margin-left: calc(50% - 50vw);
+    margin-right: calc(50% - 50vw);
+  }
+
+  .fullwidth-rect {
+    position: absolute;
+    left: 0;
+    right: 0;
+  }
+
+  .slant-rect {
+    background: white;
+    position: relative;
+    width: 120%;
+    left: 50%;
+    transform: rotate(-8deg) translateX(-50%);
+    height: 34vw;
+    max-height: 350px;
+    min-height: 200px;
+  }
+
+  .growth-rect {
+    position: absolute;
+    left: 0;
+    right: 0;
+    width: 0%;
+    height: 3px;
+    background: black;
+    top: 50%;
+    transform: translateY(-50%);
+    background-color: black;
+    transition: width 0.25s, height 0.2s 0.3s ease-in-out;
+    overflow: hidden;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+  }
+
+  .growth-rect.grown {
+    height: 100%;
+    width: 100%;
+  }
+
+  .growth-rect .caligraphy {
+    transform: rotate(8deg);
+    height: 42vw;
+    max-height: 430px;
+    min-height: 246px;
+  }
+}
+
+// Contact Section
+
+#contact {
+  .contact-info {
+    margin-bottom: 50px;
+  }
+
+  .contact-img-wrapper {
+    width: 105px;
+    height: 90px;
+    margin-bottom: 20px;
+  }
+}

@@ -1,0 +1,143 @@
+@use './rwd.mixins' as rwd;
+
+.row {
+  width: 100%;
+  margin: 0;
+}
+
+.media-block-wrapper {
+  padding: 17px 8px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+
+  @include rwd.mobile {
+    padding: 8px 0;
+  }
+}
+
+.media-block {
+  position: relative;
+  overflow: hidden;
+  width: 100%;
+  transition: all 0.5s ease-in-out;
+
+  img {
+    box-shadow: none;
+    transition: inherit;
+    width: 100%;
+  }
+
+  .media-text {
+    position: absolute;
+    width: 100%;
+    background: #d8d8d8;
+    height: 70px;
+    padding: 13px 10px;
+    bottom: 0;
+    margin: 0;
+    transform: translateY(100%);
+    transition: inherit;
+    color: black;
+
+    @include rwd.mobile {
+      position: static;
+      transform: translateY(0);
+    }
+  }
+
+  &:hover {
+    box-shadow: 0 0 0 8px black;
+
+    @include rwd.mobile {
+      box-shadow: none;
+    }
+
+    .media-text {
+      transform: translateY(0);
+    }
+  }
+}
+
+#button-view-all-wrapper {
+  margin: 70px 0 115px;
+
+  @include rwd.mobile {
+    margin: 50px 0 65px;
+  }
+}
+
+#type-filter {
+  width: 130px;
+  font-family: NotoSansCJKtc-Light;
+  font-size: 15px;
+  color: #494949;
+  letter-spacing: 0.34px;
+  position: absolute;
+  z-index: 40;
+
+  @include rwd.mobile {
+    box-shadow: 0 0 4px 0 #9c9792;
+    display: block;
+  }
+}
+
+#dropdown-menu-btn {
+  font-family: inherit;
+  font-size: inherit;
+  width: 100%;
+  position: relative;
+  background: white;
+
+  &:focus {
+    box-shadow: none;
+  }
+
+  &::after {
+    display: none;
+
+    @include rwd.mobile {
+      content: "";
+      position: absolute;
+      right: 10px;
+      top: 50%;
+      transform: translateY(-50%);
+      display: block;
+    }
+  }
+}
+
+.dropdown-menu {
+  border-radius: 0;
+  width: 100%;
+  min-width: 100%;
+  padding: 0;
+  float: initial;
+  border: none;
+  margin-top: -36px;
+  margin-left: 110px;
+  display: flex;
+
+  &.show {
+    display: flex;
+    position: static !important;
+    transform: none !important;
+  }
+
+  @include rwd.mobile {
+    margin: 0;
+    flex-direction: column;
+    display: none;
+  }
+}
+
+.dropdown-item {
+  font-family: inherit;
+  font-size: inherit;
+  text-align: center;
+
+  &.active, &:active {
+    color: #f5a623;
+    background: white;  
+  }
+}

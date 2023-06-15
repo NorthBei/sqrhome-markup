@@ -1,0 +1,536 @@
+extends @templates/base.pug
+
+block styles
+  link(href=require("slick-carousel/slick/slick.css"), rel="stylesheet", type="text/css")
+  link(href=require("slick-carousel/slick/slick-theme.css"), rel="stylesheet", type="text/css")
+  link(href=require("@styles/index.page.scss"), rel="stylesheet", type="text/css")
+
+block append scripts
+  script(defer, src=require("@js/index.page.js"), type="text/javascript")
+
+block content
+  #intro-anim
+  #anim-wrapper
+    #paint-logo.whole-cover
+      img#sqr-big-logo(alt="sqrhome logo", src=require("@images/SQR.png"))
+      #mouse-anim-wrapper
+        img.mouse-item.mb-5(alt="mouse", src=require("@images/mouse.svg?inline"))
+        .mouse-indicator-list
+          .indicator.mb-3
+          .indicator.mb-3
+          .indicator.mb-3
+
+    #brand-logo.whole-cover.d-flex.justify-content-center.align-items-center.bg-white
+      .d-flex.justify-content-center.align-items-center.flex-column.flex-sm-row.position-relative
+        #exclamations.pb-3.pb-md-0
+          img(alt="exclamations", src=require("@images/exclamations.png"))
+        img#mark.mb-3.mb-sm-0(alt="mark", src=require("@images/XMLID_1474_.png"))
+        img#company-name.ml-0.ml-sm-5(alt="Company Name", src=require("@images/XMLID_786_.png"))
+    #showing.whole-cover
+    //- #loading.whole-cover
+
+  style.
+  script.
+
+  #about.row.section-wrapper
+    .section-title-wrapper
+      h3.title 關於我們
+      h4.subtitle 私たちについて
+
+    #about-content.col-12.d-flex.align-items-center.flex-column
+      .company-info.d-flex.align-items-center.justify-content-center
+        span.company-intro 超酷炫！
+          br
+          | 廣告公司
+
+        svg#about-dialog(height="158", width="162", xmlns="http://www.w3.org/2000/svg")
+          g(fill="none", fill-rule="evenodd")
+            text(
+              fill="#000",
+              font-family="NotoSansCJKtc-Black, Noto Sans CJK TC",
+              font-size="7",
+              font-weight="700",
+              transform="translate(5 5)"
+            )
+              tspan(x="49", y="68") 超酷炫廣告公司
+            path(
+              d="M50.74 129.559L55.823 148l11.73-15.173 34.285.704 31.022-11.356L157 78.733l-11.847-47.79-35.85-22.848L44.095 5 5 44.294l.39 51.313z",
+              stroke="#000",
+              stroke-width="9"
+            )
+
+      a.mt-3.about-link(href="./about.html") 更多關於我
+
+      #play-button
+
+  style.
+  script.
+
+  #serve.row.section-wrapper
+    .section-title-wrapper
+      h3.title 服務介紹
+      h4.subtitle サービス
+
+    #serve-main.col-12.d-flex.align-items-center.flex-column
+      .row.w-100
+        .col-12.col-md-6.window.left
+          #serve1.serve-anim
+          #serve4.serve-anim
+          span#serve1-cover.serve-anim
+
+        .col-12.col-md-6.window
+          #serve2.serve-anim
+          #serve3.serve-anim
+          span#serve2-cover.serve-anim
+
+      #bottom-dialog.col-12.d-none.d-md-flex.align-items-center.justify-content-end.p-2
+        img#bottom-dialog-img(alt="漩渦殺老師", src=require("@images/漩渦殺老師.png"))
+        #bottom-dialog-wrapper
+          p 針對不同類型品牌形象溝通說故事的對象與人，並且利用不同社群平台更貼近消費者生活狀況。讓品牌的一天24小時，踹共一起。
+
+      #digital-prod.col-12.serve-slide
+        img.back-arrow(alt="", src=require("@images/back-arrow.svg"))
+        .lottie-anim
+
+      #creative.col-12.serve-slide.px-0
+        img.w-100.d-none.d-md-block(alt="", src=require("@images/creative-bg.png"))
+        img.w-100.d-block.d-md-none(alt="", src=require("@images/creative-bg-phone.png"))
+        .content-wrapper.row.h-50
+          #brand.content.col-12.col-md-6.col-lg-7
+            span.zh 品牌
+              br
+              | 再造&nbsp;&nbsp;
+
+            span.spilt
+            span.en Branding
+          #social.content.col-12.col-md-6.col-lg-5
+            span.zh 社群
+              br
+              | 媒體&nbsp;&nbsp;
+            span.spilt
+            span.en &nbsp;&nbsp;Social
+              br 
+              | Media
+
+          #media.content.col-12.col-md-6
+            span.zh 影音
+              br
+              span.d-md-none &nbsp;&nbsp;
+              | 內容
+              span.d-none.d-md-inline-block &nbsp;&nbsp;
+            span.spilt
+            span.en.text-center.text-md-left
+              #btn-video
+                a.btn(href="./media.html")
+                  span.mb-4.hand
+                    img(src=require("@images/footer-top-hand.svg"))
+                spa.ml-3 影音傳送
+              | Video
+
+          #project.content.col-12.col-md-6
+            span.zh 專案
+              br
+              span.d-md-none &nbsp;&nbsp;
+              | 內容
+              span.d-none.d-md-inline-block &nbsp;&nbsp;
+            span.spilt
+            span.en Campaign
+
+        span.company-name 紅紅數位
+        img.back-arrow(alt="", src=require("@images/back-arrow.svg"))
+
+      #ads.col-12.serve-slide
+        .row.d-flex.align-items-center.flex-column
+          .col-12.title-block
+            img.back-arrow(alt="", src=require("@images/back-arrow.svg"))
+            span.company-name.d-none.d-lg-block 紅紅數位
+            p 流程：所有廣告曝光及內容均以紅紅數位配合第三方監測軟體分析品牌現況調整相對應適合品牌之廣告形式。
+          .col-12.border-bold.mb-3
+            .row.py-4.py-md-5
+              .col-12.col-lg-6.d-flex.flex-column.align-items-center.px-0.mb-4.mb-lg-0
+                img(alt="", src=require("@images/google.png"))
+                div
+                  .item.d-flex.align-items-center.my-2.my-md-4
+                    img(alt="手裡劍", src=require("@images/sword.png"))
+                    .text-wrapper
+                      .main-text Google 關鍵字
+                      span.sub-text Google search marketing
+                  .item.d-flex.align-items-center.my-2.my-md-4
+                    img(alt="手裡劍", src=require("@images/sword.png"))
+                    .text-wrapper
+                      .main-text Google展示型廣告
+                      span.sub-text Google Display Network
+              .col-12.col-lg-6.d-flex.flex-column.align-items-center.px-0
+                img(alt="", src=require("@images/yahoo.png"))
+                div
+                  .item.d-flex.align-items-center.my-2.my-md-4
+                    img(alt="手裡劍", src=require("@images/sword.png"))
+                    .text-wrapper
+                      .main-text Yahoo 關鍵字
+                      span.sub-text Yahoo search marketing
+                  .item.d-flex.align-items-center.my-2.my-md-4
+                    img(alt="手裡劍", src=require("@images/sword.png"))
+                    .text-wrapper
+                      .main-text Yahoo 原生廣告
+                      span.sub-text Yahoo Native Advertising
+          #brand.w-100.dialog
+            .col-12.border-bold.mb-3.folding-block
+              .row.py-4.py-md-5
+                .col-12.d-flex.justify-content-center
+                  img.mx-3(alt="FB", src=require("@images/facebook.png"))
+                  img.mx-3(alt="IG", src=require("@images/IG.png"))
+                .col-12.col-md-4.d-flex.flex-column.align-items-center.px-0
+                  .item.d-flex.align-items-center.my-2.my-md-4
+                    img(alt="手裡劍", src=require("@images/sword.png"))
+                    .text-wrapper
+                      .main-text 品牌曝光
+                      span.sub-text Branding
+                  .item.d-flex.align-items-center.my-2.my-md-4
+                    img(alt="手裡劍", src=require("@images/sword.png"))
+                    .text-wrapper
+                      .main-text 互動廣告
+                      span.sub-text Intrtaction
+
+                .col-12.col-md-4.d-flex.flex-column.align-items-center.px-0
+                  .item.d-flex.align-items-center.my-2.my-md-4
+                    img(alt="手裡劍", src=require("@images/sword.png"))
+                    .text-wrapper
+                      .main-text 導購廣告
+                      span.sub-text ROAS
+                  .item.d-flex.align-items-center.my-2.my-md-4
+                    img(alt="手裡劍", src=require("@images/sword.png"))
+                    .text-wrapper
+                      .main-text 點擊廣告
+                      span.sub-text Website
+                .col-12.col-md-4.d-flex.flex-column.align-items-center.px-0
+                  .item.d-flex.align-items-center.my-2.my-md-4
+                    img(alt="手裡劍", src=require("@images/sword.png"))
+                    .text-wrapper
+                      .main-text 安裝下載
+                      span.sub-text APP
+                  .item.d-flex.align-items-center.my-2.my-md-4
+                    img(alt="手裡劍", src=require("@images/sword.png"))
+                    .text-wrapper
+                      .main-text 讚廣告
+                      span.sub-text Like
+          #film.w-100
+            .col-12.border-bold.folding-block
+              .row.py-4.py-md-5
+                .col-12.d-flex.justify-content-center.align-items-center.flex-column.flex-md-row
+                  img.mr-0.mr-md-4(alt="youtube", src=require("@images/youtube.svg"))
+                  .item.d-flex.align-items-center.my-2.my-md-4
+                    img(alt="手裡劍", src=require("@images/sword.png"))
+                    .text-wrapper
+                      .main-text 影音觀看
+                      span.sub-text CPV
+
+  style.
+  script.
+
+  #works.row.section-wrapper
+    .section-title-wrapper
+      h3.title 作品總集
+      h4.subtitle ワークスコレクション
+    #cats.row.content-block-wrapper
+      .col-12.col-md-5.mb-5.mb-md-0
+        .dialog-wrapper.left
+          img.dialog.small.d-none.d-md-inline-block(alt="", src=require("@images/cat-left-desktop.png"))
+          img.dialog.small.d-md-none(alt="", src=require("@images/cat-left-phone.png"))
+          a.d-flex.justify-content-center(href="http://")
+            img.dialog.big.d-none.d-md-inline-block(alt="", src=require("@images/cat-left-desktop-hover.png"))
+            img.dialog.big.d-md-none(alt="", src=require("@images/cat-left-phone-hover.png"))
+        #cat-left
+        a(href="./product.html") 網站作品案例
+      #cat-center.col-md-2.d-none.d-md-flex
+        img(alt="", src=require("@images/有虎斑.png"))
+      .col-12.col-md-5.mb-5.mb-md-0
+        .dialog-wrapper.right
+          img.dialog.small.d-none.d-md-inline-block(alt="", src=require("@images/cat-right-desktop.png"))
+          img.dialog.small.d-md-none(alt="", src=require("@images/cat-right-phone.png"))
+          a.d-flex.justify-content-center(href="http://")
+            img.dialog.big.d-none.d-md-inline-block(alt="", src=require("@images/cat-right-desktop-hover.png"))
+            img.dialog.big.d-md-none(alt="", src=require("@images/cat-right-phone-hover.png"))
+        #cat-right
+        a(href="./media.html") 影音作品案例
+
+  style.
+  script.
+
+  #corporation.row.section-wrapper
+    .section-title-wrapper
+      h3.title 合作案例
+      h4.subtitle 協力ケース
+    #corporation-sample.row.content-block-wrapper
+      .col-12
+        .scrollbar.scrollbar-left
+          img.scrollbar-image(alt="scrollbar", src=require("@images/scrollbar.png"))
+        #corporation-list
+          .corpor-list-page
+            .corpor-list-col
+              .corpor-logo-wrapper
+                .corpor-logo
+                  img.corpor-logo-image(src=require("@images/co-logo.png"))
+              .corpor-logo-wrapper
+                .corpor-logo
+                  img.corpor-logo-image(src=require("@images/co-logo.png"))
+              .corpor-logo-wrapper
+                .corpor-logo
+                  img.corpor-logo-image(src=require("@images/co-logo.png"))
+              .corpor-logo-wrapper
+                .corpor-logo
+                  img.corpor-logo-image(src=require("@images/co-logo.png"))
+              .corpor-logo-wrapper
+                .corpor-logo
+                  img.corpor-logo-image(src=require("@images/co-logo.png"))
+              .corpor-logo-wrapper
+                .corpor-logo
+                  img.corpor-logo-image(src=require("@images/co-logo.png"))
+          .corpor-list-page
+            .corpor-list-col
+              .corpor-logo-wrapper
+                .corpor-logo
+                  img.corpor-logo-image(src=require("@images/co-logo.png"))
+              .corpor-logo-wrapper
+                .corpor-logo
+                  img.corpor-logo-image(src=require("@images/co-logo.png"))
+              .corpor-logo-wrapper
+              .corpor-logo-wrapper
+              .corpor-logo-wrapper
+
+        .scrollbar.scrollbar-right
+          img.scrollbar-image(alt="scrollbar", src=require("@images/scrollbar.png"))
+
+    script.
+      $(document).ready(function () {
+        $("#corporation-list").slick({
+          //adaptiveHeight: true,
+          dots: true,
+          prevArrow: '<img class="slide-arrow slide-arrow-left" src="./assets/img/arrow-left.png">',
+          nextArrow: '<img class="slide-arrow slide-arrow-right" src="./assets/img/arrow-right.png">',
+        });
+
+        var waypoint = new Waypoint({
+          element: document.getElementById("corporation-list"),
+          handler: function () {
+            $(".scrollbar").addClass("open");
+          },
+          offset: function () {
+            return window.innerHeight / 2 - this.element.clientHeight / 2 + window.innerHeight * 0.1;
+          },
+        });
+      });
+
+  #team.row.section-wrapper
+    .section-title-wrapper
+      h3.title 專業團隊
+      h4.subtitle プロフェッショナルチーム
+
+    .row.content-block-wrapper.px-md-5
+      .group-member.group-member-show.col-xl-2.col-md-3.col-6.d-inline-flex.flex-column.align-items-center
+        .member-photo-wrapper.mb-3
+          img.member-image(src=require("@images/bing.png"))
+          img.member-image.member-cat(src=require("@images/cover-企劃.png"))
+        h6.member-name 遊戲BOY
+        p.my-0 戰鬥力
+        .group-member-star-rate.mb-4.mb-md-5
+          .star-empty
+            span ☆
+            span ☆
+            span ☆
+            span ☆
+            span ☆
+          .star-real
+            span ★
+            span ★
+            span ★
+            span ★
+            span ☆
+
+      .group-member.group-member-show.col-xl-2.col-md-3.col-6.d-inline-flex.flex-column.align-items-center
+        .member-photo-wrapper.mb-3
+          img.member-image(src=require("@images/bing.png"))
+          img.member-image.member-cat(src=require("@images/cover-企劃.png"))
+        h6.member-name 遊戲BOY
+        p.my-0 戰鬥力
+        .group-member-star-rate.mb-4.mb-md-5
+          .star-empty
+            span ☆
+            span ☆
+            span ☆
+            span ☆
+            span ☆
+          .star-real
+            span ★
+            span ★
+            span ★
+            span ★
+            span ☆
+
+      .group-member.group-member-show.col-xl-2.col-md-3.col-6.d-inline-flex.flex-column.align-items-center
+        .member-photo-wrapper.mb-3
+          img.member-image(src=require("@images/bing.png"))
+          img.member-image.member-cat(src=require("@images/cover-企劃.png"))
+        h6.member-name 遊戲BOY
+        p.my-0 戰鬥力
+        .group-member-star-rate.mb-4.mb-md-5
+          .star-empty
+            span ☆
+            span ☆
+            span ☆
+            span ☆
+            span ☆
+          .star-real
+            span ★
+            span ★
+            span ★
+            span ★
+            span ☆
+
+      .group-member.group-member-show.col-xl-2.col-md-3.col-6.d-inline-flex.flex-column.align-items-center
+        .member-photo-wrapper.mb-3
+          img.member-image(src=require("@images/bing.png"))
+          img.member-image.member-cat(src=require("@images/cover-企劃.png"))
+        h6.member-name 遊戲BOY
+        p.my-0 戰鬥力
+        .group-member-star-rate.mb-4.mb-md-5
+          .star-empty
+            span ☆
+            span ☆
+            span ☆
+            span ☆
+            span ☆
+          .star-real
+            span ★
+            span ★
+            span ★
+            span ★
+            span ☆
+
+      .group-member.col-xl-2.col-md-3.col-6.d-inline-flex.flex-column.align-items-center
+        .member-photo-wrapper.mb-3
+          img.member-image(src=require("@images/bing.png"))
+          img.member-image.member-cat(src=require("@images/cover-企劃.png"))
+        h6.member-name 遊戲BOY
+        p.my-0 戰鬥力
+        .group-member-star-rate.mb-4.mb-md-5
+          .star-empty
+            span ☆
+            span ☆
+            span ☆
+            span ☆
+            span ☆
+          .star-real
+            span ★
+            span ★
+            span ★
+            span ★
+            span ☆
+
+      .group-member.col-xl-2.col-md-3.col-6.d-inline-flex.flex-column.align-items-center
+        .member-photo-wrapper.mb-3
+          img.member-image(src=require("@images/bing.png"))
+          img.member-image.member-cat(src=require("@images/cover-企劃.png"))
+        h6.member-name 遊戲BOY
+        p.my-0 戰鬥力
+        .group-member-star-rate.mb-4.mb-md-5
+          .star-empty
+            span ☆
+            span ☆
+            span ☆
+            span ☆
+            span ☆
+          .star-real
+            span ★
+            span ★
+            span ★
+            span ★
+            span ☆
+
+      .group-member.col-xl-2.col-md-3.col-6.d-inline-flex.flex-column.align-items-center
+        .member-photo-wrapper.mb-3
+          img.member-image(src=require("@images/bing.png"))
+          img.member-image.member-cat(src=require("@images/cover-企劃.png"))
+        h6.member-name 遊戲BOY
+        p.my-0 戰鬥力
+        .group-member-star-rate.mb-4.mb-md-5
+          .star-empty
+            span ☆
+            span ☆
+            span ☆
+            span ☆
+            span ☆
+          .star-real
+            span ★
+            span ★
+            span ★
+            span ★
+            span ☆
+
+      .group-member.col-xl-2.col-md-3.col-6.d-inline-flex.flex-column.align-items-center
+        .member-photo-wrapper.mb-3
+          img.member-image(src=require("@images/bing.png"))
+          img.member-image.member-cat(src=require("@images/cover-企劃.png"))
+        h6.member-name 遊戲BOY
+        p.my-0 戰鬥力
+        .group-member-star-rate.mb-4.mb-md-5
+          .star-empty
+            span ☆
+            span ☆
+            span ☆
+            span ☆
+            span ☆
+          .star-real
+            span ★
+            span ★
+            span ★
+            span ★
+            span ☆
+
+    +main-button("Show More",{id:"show-more-btn",class:"d-md-none"})
+
+  style.
+  script.
+
+  #union.row.section-wrapper
+    .section-title-wrapper
+      h3.title 策略聯盟
+      h4.subtitle 戦略的提携
+
+    #calligraphy-top.calligraphy-react
+      .fullwidth-rect
+        .slant-rect
+          .growth-rect
+            img.caligraphy(alt="", src=require("@images/共生-設計.png"))
+            img.d-none.d-sm-inline-block.caligraphy(alt="", src=require("@images/奧創-傳媒.png"))
+
+    #calligraphy-bottom.calligraphy-react.d-block.d-sm-none
+      .fullwidth-rect
+        .slant-rect
+          .growth-rect
+            img.caligraphy(alt="", src=require("@images/奧創-傳媒.png"), srcset="")
+
+  style.
+  script.
+
+  #contact.row.section-wrapper
+    .section-title-wrapper
+      h3.title 聯絡我們
+      h4.subtitle お問い合わせ
+    .row.content-block-wrapper.d-flex.justify-content-center
+      .col-md-3.contact-info.d-flex.align-items-center.flex-column.text-center
+        .contact-img-wrapper.d-flex.align-items-center.justify-content-center
+          img(src=require("@images/contact-phone.png"))
+          //- include ../assets/images/contact-phone.pug
+        p TEL：+886-2-3393-1393
+      .col-md-3.contact-info.d-flex.align-items-center.flex-column.text-center
+        .contact-img-wrapper.d-flex.align-items-center.justify-content-center
+          img(src=require("@images/contact-map-pin.png"))
+          //- include ../assets/images/contact-map-pin.pug
+        p 〒 台北市中正區金山北路1號12F
+        small 12F., No.1, Jinshan N. Rd., Zhongzheng Dist., Taipei City 100, Taiwan (R.O.C.)
+
+      .col-md-3.contact-info.d-flex.align-items-center.flex-column.text-center
+        .contact-img-wrapper.d-flex.align-items-center.justify-content-center
+          img(src=require("@images/contact-mail.png"))
+          //- include ../assets/images/contact-mail.pug
+        p Email：service@sqrhome.com

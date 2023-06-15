@@ -1,0 +1,126 @@
+@use './rwd.mixins' as rwd;
+
+#video-wrapper {
+  margin-top: 145px;
+
+  @include rwd.pad-portrait {
+    margin-top: 15px;
+  }
+}
+
+.video {
+  width: 100%;
+  height: auto;
+  vertical-align: bottom;
+}
+
+.media-arrow {
+  max-height: 80px;
+
+  @include rwd.pad-portrait {
+    max-height: 48px;
+  }
+}
+
+.video-info {
+  background: #d8d8d8;
+  padding: 10px 20px;
+  color: #494949;
+
+  @include rwd.pad-portrait {
+    padding: 0;
+  }
+
+  .title {
+    font-family: NotoSansCJKtc-Bold;
+    font-size: 20px;
+    letter-spacing: 0.45px;
+
+    @include rwd.pad-portrait {
+      padding: 13px 10px;
+      font-size: 15px;
+    }
+  }
+
+  .others, .video-intro {
+    font-size: 15px;
+    font-family: NotoSansCJKtc-DemiLight;
+    letter-spacing: 0.34px;
+  }
+
+  .others {
+    @include rwd.pad-portrait {
+      background: white;
+      padding: 15px 7px 0;
+    }
+  }
+}
+
+#video-content .main-content section {
+  padding-left: 30px;
+  padding-right: 30px;
+  margin-top: 30px;
+  color: #494949;
+
+  @include rwd.pad-portrait {
+    padding-left: 7px;
+    padding-right: 7px;
+    margin-top: 15px;
+  }
+}
+
+.tags {
+  font-size: 18px;
+  letter-spacing: 0.4px;
+
+  .title {
+    font-family: NotoSansCJKtc-Bold;
+  }
+}
+
+.tag-name {
+  &::after {
+    content: "、";
+  }
+
+  &:last-child::after {
+    content: "";
+  }
+}
+
+.share {
+  display: flex;
+  align-items: center;
+
+  .sharing-icon {
+    margin-right: 12px;
+  }
+
+  #fb-icon.sharing-icon {
+    cursor: pointer;
+
+    &:hover svg {
+      path {
+        fill: white;
+      }
+
+      circle {
+        fill: #3470b6;
+      }
+    }
+  }
+
+  #gplus-icon.sharing-icon {
+    cursor: pointer;
+
+    &:hover svg {
+      path {
+        fill: white;
+      }
+
+      circle {
+        fill: #d01802;
+      }
+    }
+  }
+}

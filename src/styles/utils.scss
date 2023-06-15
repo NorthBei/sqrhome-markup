@@ -1,0 +1,21 @@
+%absolute-center {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+}
+
+%circle-logo {
+  background: #000;
+  font-size: 30px;
+  color: #f5a623;
+  width: 198px;
+  height: 198px;
+
+  /* same with width */
+  line-height: 198px;
+  position: absolute;
+  border-radius: 50%;
+  writing-mode: vertical-lr;
+  text-align: center;
+}

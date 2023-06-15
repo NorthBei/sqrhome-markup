@@ -1,0 +1,23 @@
+@mixin laptop {
+  @media(width <= 1200px) {
+    @content;
+  }
+}
+
+@mixin pad-landscape {
+  @media(width <= 991px) {
+    @content;
+  }
+}
+
+@mixin pad-portrait {
+  @media(width <= 768px) {
+    @content;
+  }
+}
+
+@mixin mobile {
+  @media(width <= 576px) {
+    @content;
+  }
+}

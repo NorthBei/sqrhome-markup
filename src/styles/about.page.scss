@@ -1,0 +1,25 @@
+@use './rwd.mixins' as rwd;
+
+#main-pic {
+  margin-top: 130px;
+  width: 100%;
+
+  @include rwd.pad-landscape {
+    margin-top: 20px;
+    width: 100%;
+  }
+
+}
+
+.content-section {
+  padding: 38px 28px 40px;
+  font-size: 17px;
+
+  &:first-of-type {
+    border-bottom: 2px solid #f29600;
+  }
+
+  @include rwd.pad-landscape {
+    padding: 30px 0;
+  }
+}

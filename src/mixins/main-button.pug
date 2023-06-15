@@ -1,0 +1,16 @@
+mixin main-button(text,attrs = {id:"",class:""})
+  style= require("@styles/main-button.mixin.scss?inline")
+
+  .row
+    .col-sm-12.d-flex.justify-content-center.align-items-center
+      .main-button(class!=attrs.class, id!=attrs.id)
+        case text
+          when "View All"
+            img(src=require("@images/icon-telescope.svg?inline"))
+          when "Show More"
+            img(src=require("@images/icon-telescope.svg?inline"))
+          when "Back to List"
+            img(src=require("@images/icon-apps.svg?inline"))
+          default
+            p none
+        | #{ text }

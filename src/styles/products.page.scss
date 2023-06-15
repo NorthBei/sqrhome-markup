@@ -1,0 +1,146 @@
+@use './rwd.mixins' as rwd;
+
+#box-wrapper {
+  margin-top: 250px;
+
+  @include rwd.pad-portrait {
+    margin: 0 auto;
+    background-image: url('@images/dots.png');
+    background-size: 70%;
+    background-repeat: no-repeat;
+    background-position-x: center;
+    background-position-y: center;
+  }
+}
+
+.product {
+  font-size: 14px;
+  display: flex;
+  flex-direction: column;
+  position: relative;
+
+  @include rwd.pad-portrait {
+    max-width: 100%;
+    text-align: center;
+    padding-top: 217px;
+  }
+
+  &:focus {
+    outline: none;
+  }
+
+  .product-dialog {
+    position: absolute;
+    top: -92%;
+    left: 20%;
+    z-index: 3;
+    opacity: 0;
+    visibility: hidden;
+    transition: all 0.4s ease-in-out;
+
+    @include rwd.pad-portrait {
+      top: 12vw;
+      left: 50%;
+      transform: translateX(-50%);
+      opacity: 1;
+      visibility: visible;
+    }
+  }
+
+  &:hover .product-dialog {
+    opacity: 1;
+    visibility: visible;
+  }
+
+  .product-info {
+    @include rwd.pad-portrait {
+      /* 為了讓slide置中加上得height */
+      height: 160px;
+      display: flex;
+      flex-direction: column;
+      justify-content: flex-end;
+    }  
+  }
+}
+
+.product-img {
+  border: 6px solid;
+  padding-bottom: 48%;
+  position: relative;
+
+  @include rwd.pad-portrait {
+    border: none;
+  }
+}
+
+
+.product-logo {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  max-width: 80%;
+  max-height: 50%;
+
+  @include rwd.pad-portrait {
+    width: 65%;
+  }
+}
+
+.product-name {
+  color: black;
+  font-weight: bold;
+}
+
+.product-url {
+  color: #9b9b9b;
+}
+
+// override slick css
+.slick-slider {
+  display: flex;
+  width: 100%;
+}
+
+.slide-arrow {
+  position: absolute;
+  top: 50%;
+  transform: translateY(-50%);
+  height: 48px;
+  z-index: 10;
+}
+
+.slide-arrow-left {
+  left: 0;
+}
+
+.slide-arrow-right {
+  right: 0;
+}
+
+/**  logo box  **/
+#logo-box-cluster {
+  width: 100%;
+  margin: 0 auto;
+  margin-bottom: 180px;
+
+  .col-6 {
+    padding: 0 5px;
+
+    .logo-box {
+      border: 6px solid black;
+      padding-bottom: 70%;
+      position: relative;
+      display: block;
+
+      img {
+        position: absolute;
+        top: 50%;
+        left: 50%;
+        transform: translate(-50%, -50%);
+        width: 100%;
+        max-width: 70%;
+      }
+    }
+  }
+}

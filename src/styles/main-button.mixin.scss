@@ -1,0 +1,32 @@
+@use './rwd.mixins' as rwd;
+
+.main-button {
+  padding: 12px 20px;
+  border: 1px solid #979797;
+  background: white;
+  color: black;
+  font-size: 14px;
+  border-radius: 50px;
+  width: 164px;
+  height: 45px;
+  display: flex;
+  justify-content: space-around;
+  align-items: center;
+  cursor: pointer;
+  outline: none;
+  margin: 70px 0 85px;
+
+  &:hover {
+    color: white;
+    background: #f29600;
+    border-color: #f29600;
+
+    svg path {
+      fill: white;
+    }
+  }
+
+  @include rwd.mobile {
+    margin: 50px 0 65px;
+  }
+}

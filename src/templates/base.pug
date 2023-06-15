@@ -1,0 +1,32 @@
+include @mixins/main-button.pug
+
+doctype html
+html(lang="zh-TW")
+  head
+    title 紅紅數位
+    meta(content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no", name="viewport")
+
+    link(href=require("bootstrap/dist/css/bootstrap.min.css"), rel="stylesheet", type="text/css")
+    link(href=require("@styles/base.template.scss"), rel="stylesheet", type="text/css")
+
+    style.
+
+    block styles
+
+    //- We should add jquery to global by url, make jquery be IIFE, instead load by webpack
+    script(
+      crossorigin="anonymous",
+      integrity="sha256-FgpCb/KJQlLNfOu91ta32o/NMZxltwRo8QtmkMRdAu8=",
+      src="https://code.jquery.com/jquery-3.3.1.min.js"
+    )
+    script(defer, src=require("bootstrap/dist/js/bootstrap.bundle.min.js"), type="text/javascript")
+    script(defer, src=require("@js/base.template.js"), type="text/javascript")
+    block scripts
+
+  body
+    include @components/header.pug
+    block cap
+    #main.container
+      block content
+
+    include @components/footer.pug

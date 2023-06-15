@@ -1,0 +1,29 @@
+@use './header.component.scss';
+@use './footer.component.scss';
+
+@font-face {
+  font-family: BebasNeue;
+  src: url("@fonts/bebas_neue/BebasNeue-Regular.ttf"), url("@fonts/bebas_neue/BebasNeue-Regular.otf");
+}
+
+@font-face {
+  font-family: NotoSansCJKtc;
+  src: url("@fonts/NotoSansCJKtc/NotoSansCJKtc-Medium.otf");
+}
+
+@font-face {
+  font-family: NotoSansCJKtc-Black;
+  src: url("@fonts/NotoSansCJKtc/NotoSansCJKtc-Black.otf");
+}
+
+.container {
+  max-width: 1200px;
+
+  &#main {
+    min-height: 100vh;
+  }
+}
+
+body {
+  cursor: url("@images/cursor.png"), auto;
+}

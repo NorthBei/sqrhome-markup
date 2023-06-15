@@ -1,0 +1,114 @@
+extends @templates/base.pug
+
+block append styles
+  link(href=require("scroll-select/style.css"), rel="stylesheet", type="text/css")
+  style.
+    /* Add fixed height to scroll-select, should put this css here, cannot in scss file */
+    .scroll-select-container {
+      height: 150px;
+    }
+  link(href=require("@styles/news.page.scss"), rel="stylesheet", type="text/css")
+
+block append scripts
+  script(defer, src=require("@js/news.page.js"), type="text/javascript")
+
+block content
+  #top-section.row.my-4
+    img#hihi(alt="", src=require("@images/hihi.png"), srcset="")
+
+    #title
+      span 最新
+      span 消息
+    #timeline-select.mr-3.d-none.d-md-block
+      span.timeline Timeline
+      #select
+        .div
+      span#prev.timeline-button
+      span#next.timeline-button
+
+    #type-filter.type-filter.dropdown.d-md-none
+      button#dropdown-menu-btn.btn.dropdown-toggle(
+        aria-expanded="false",
+        aria-haspopup="true",
+        data-toggle="dropdown",
+        type="button"
+      )
+        | Timeline
+      .dropdown-menu(aria-labelledby="dropdownMenuButton")
+        a.dropdown-item.active(data-filter="[\"A\",\"B\"]", data-name="All", href="#") All
+        a.dropdown-item(data-filter="[\"A\"]", data-name="A", href="#") A
+        a.dropdown-item(data-filter="[\"B\"]", data-name="B", href="#") B
+
+  #news-section.row.pb-5
+    .news-info.col-lg-4.col-md-6.col-sm-12.mb-5.pl-lg-2.pr-lg-2(data-groups="[\"A\"]")
+      .news-block-wrapper.dialog-border-bottom.mb-1
+        a.news-block(href="./news-content.html")
+          div
+            img.img-fluid(src=require("@images/news-test.png"))
+          div
+            p.news-title 期間限定！adidas Originals經典概念店開幕大家快來採購限量...
+            img.img-fluid(src=require("@images/news-test.png"))
+
+      time.news-date.mb-1 2018.01.04
+      p.news-content A弊社、関連会社の株式会社スポーツイズグッドが開発した “CYBER WHEEL”がグッドデザイン賞を受賞しました！
+      button.news-more-btn Detail
+
+    .news-info.col-lg-4.col-md-6.col-sm-12.mb-5.pl-lg-2.pr-lg-2(data-groups="[\"B\"]")
+      .news-block-wrapper.dialog-border-bottom.mb-1
+        a.news-block(href="./news-content.html")
+          div
+            img.img-fluid(src=require("@images/news-test.png"))
+          div
+            p.news-title 期間限定！adidas Originals經典概念店開幕大家快來採購限量...
+            img.img-fluid(src=require("@images/news-test.png"))
+      time.news-date.mb-1 2018.01.04
+      p.news-content B 弊社、関連会社の株式会社スポーツイズグッドが開発した “CYBER WHEEL”がグッドデザイン賞を受賞しました！
+      button.news-more-btn Detail
+
+    .news-info.col-lg-4.col-md-6.col-sm-12.mb-5.pl-lg-2.pr-lg-2(data-groups="[\"A\"]")
+      .news-block-wrapper.dialog-border-bottom.mb-1
+        a.news-block(href="./news-content.html")
+          div
+            img.img-fluid(src=require("@images/news-test.png"))
+          div
+            p.news-title 期間限定！adidas Originals經典概念店開幕大家快來採購限量...
+            img.img-fluid(src=require("@images/news-test.png"))
+      time.news-date.mb-1 2018.01.04
+      p.news-content A 弊社、関連会社の株式会社スポーツイズグッドが開発した “CYBER WHEEL”がグッドデザイン賞を受賞しました！
+      button.news-more-btn Detail
+
+    .news-info.col-lg-4.col-md-6.col-sm-12.mb-5.pl-lg-2.pr-lg-2(data-groups="[\"A\"]")
+      .news-block-wrapper.dialog-border-bottom.mb-1
+        a.news-block(href="./news-content.html")
+          div
+            img.img-fluid(src=require("@images/news-test.png"))
+          div
+            p.news-title 期間限定！adidas Originals經典概念店開幕大家快來採購限量...
+            img.img-fluid(src=require("@images/news-test.png"))
+      time.news-date.mb-1 2018.01.04
+      p.news-content A 弊社、関連会社の株式会社スポーツイズグッドが開発した “CYBER WHEEL”がグッドデザイン賞を受賞しました！
+      button.news-more-btn Detail
+
+    .news-info.col-lg-4.col-md-6.col-sm-12.mb-5.pl-lg-2.pr-lg-2(data-groups="[\"B\"]")
+      .news-block-wrapper.dialog-border-bottom.mb-1
+        a.news-block(href="./news-content.html")
+          div
+            img.img-fluid(src=require("@images/news-test.png"))
+          div
+            p.news-title 期間限定！adidas Originals經典概念店開幕大家快來採購限量...
+            img.img-fluid(src=require("@images/news-test.png"))
+      time.news-date.mb-1 2018.01.04
+      p.news-content B 弊社、関連会社の株式会社スポーツイズグッドが開発した “CYBER WHEEL”がグッドデザイン賞を受賞しました！
+      button.news-more-btn Detail
+
+    .news-info.col-lg-4.col-md-6.col-sm-12.mb-5.pl-lg-2.pr-lg-2(data-groups="[\"B\"]")
+      .news-block-wrapper.dialog-border-bottom.mb-1
+        a.news-block(href="./news-content.html")
+          div
+            img.img-fluid(src=require("@images/news-test.png"))
+          div
+            p.news-title 期間限定！adidas Originals經典概念店開幕大家快來採購限量...
+            img.img-fluid(src=require("@images/news-test.png"))
+      time.news-date.mb-1 2018.01.04
+      p.news-content B 弊社、関連会社の株式会社スポーツイズグッドが開発した “CYBER WHEEL”がグッドデザイン賞を受賞しました！
+      button.news-more-btn Detail

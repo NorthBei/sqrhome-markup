@@ -1,0 +1,290 @@
+@use './rwd.mixins' as rwd;
+@use './animation';
+
+#top-section {
+  flex-wrap: nowrap;
+  margin: 0;
+  align-items: center;
+  justify-content: space-between;
+  position: relative;
+
+  @include rwd.pad-landscape {
+    justify-content: center;
+  }
+}
+
+#hihi {
+  width: 40vw;
+  max-width: 312px;
+
+  @include rwd.pad-portrait {
+    width: 50vw;
+  }
+
+  @include rwd.mobile {
+    width: 55vw;
+  }
+}
+
+#title {
+  span {
+    font-family: STSongti-TC-Bold;
+    font-size: 140px;
+    border-bottom: 6px solid;
+    white-space: nowrap;
+  
+    @include rwd.pad-landscape {
+      &:nth-child(2) {
+        border: none;
+      }
+    }
+
+    @include rwd.mobile {
+      font-size: 80px;
+    }
+  }
+
+  @include rwd.pad-landscape {
+    display: flex;
+    flex-direction: column;
+    margin: 0 20px;
+  }
+
+  @include rwd.mobile {
+    margin-left: -9vw;
+  }
+}
+
+#timeline-select {
+  font-size: 20px;
+  position: relative;
+
+  .timeline {
+    padding-right: 8px;
+    background: white;  
+    padding-bottom: 8px;
+  }
+}
+
+#select {
+  padding-right: 8px;
+  background: white;
+
+  &::after {
+    content: "";
+    position: absolute;
+    top: 15px;
+    right: -12px;
+    border: 2px solid #979797;
+    height: 51%;
+    width: 15px;
+    z-index: -2;
+  }
+}
+
+.timeline-button {
+  border: 5px solid;
+  position: absolute;
+  right: -12px;
+  cursor: pointer;
+  width: 0;
+  height: 0;
+  border-style: solid;
+
+  &#prev {
+    border-width: 0 6px 12px;
+    border-color: transparent transparent black;
+    bottom: 40px;
+  }
+
+  &#next {
+    border-width: 12px 6px 0;
+    border-color: black transparent transparent;
+    bottom: 12px;
+  }
+}
+
+#type-filter {
+  width: 130px;
+  font-family: NotoSansCJKtc-Light;
+  font-size: 15px;
+  color: #494949;
+  letter-spacing: 0.34px;
+  position: absolute;
+  z-index: 40;
+  box-shadow: 0 0 4px 0 #9c9792;
+  display: block;
+  bottom: 16px;
+  left: 0;
+}
+
+#dropdown-menu-btn {
+  font-family: inherit;
+  font-size: inherit;
+  width: 100%;
+  position: relative;
+  background: white;
+  border-radius: 0;
+
+  &:focus {
+    box-shadow: none;
+  }
+
+  &::after {
+    content: "";
+    position: absolute;
+    right: 10px;
+    top: 50%;
+    transform: translateY(-50%);
+    display: block;
+  }
+}
+
+.dropdown-menu {
+  border-radius: 0;
+  width: 100%;
+  min-width: 100%;
+  padding: 0;
+  float: initial;
+  border: none;
+  margin: 0;
+  flex-direction: column;
+  display: none;
+  box-shadow: inherit;
+
+  &.show::before {
+    content: "";
+    position: absolute;
+    top: -4px;
+    width: 100%;
+    height: 8px;
+    background: white;
+  }
+}
+
+.dropdown-item {
+  font-family: inherit;
+  font-size: inherit;
+  text-align: center;
+
+  &.active, &:active {
+    color: #f5a623;
+    background: white;
+  }
+}
+
+.news-info {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+}
+
+.news-block-wrapper,
+.news-block,
+.news-block img {
+  width: 100%;
+}
+
+.news-block {
+  overflow: hidden;
+  position: relative;
+  display: block;
+}
+
+.news-title {
+  background: white;
+  color: #f77f00;
+  padding: 34px 22px;
+  font-size: 1.6rem;
+  margin: 0;
+  height: 100%;
+  width: 100%;
+
+  @include rwd.mobile {
+    padding: 32px 12px;
+    font-size: 22px;
+  }
+}
+
+.news-date {
+  font-size: 16px;
+  font-weight: bold;
+  align-self: flex-start;
+  margin-left: 22%;
+}
+
+.news-content {
+  padding: 5px;
+}
+
+.news-more-btn {
+  align-self: flex-end;
+  width: 139px;
+  height: 45px;
+  background: #fffffe;
+  font-size: 14px;
+  font-weight: bold;
+  border: 1px solid #979797;
+  cursor: pointer;
+
+  &:hover {
+    border: 1px solid #f29600;
+    background: #f29600;
+    color: white;
+  }
+}
+
+/*
+* 對話框，邊框式（下三角）
+*/
+
+.dialog-border-bottom {
+  border: 8px solid;
+  padding: 6px;
+  position: relative;
+
+  &::before {
+    border-color: black transparent transparent;
+    border-style: solid;
+    border-width: 25px;
+    bottom: -56px;
+  
+    /* 必須指定，否則會變梯形 */
+    content: "";
+    height: 0;
+    left: 15px;
+  
+    /* 必須指定，否則會變梯形 */
+    position: absolute;
+    width: 0;
+  }
+
+  &::after {
+    border-color: #fff transparent transparent;
+    border-style: solid;
+    border-width: 20px;
+    bottom: -39px;
+  
+    /* 必須指定，才能顯示內容 */
+    content: "";
+    height: 0;
+    left: 20px;
+  
+    /* 必須指定，否則會變梯形 */
+    position: absolute;
+    width: 0;
+  }
+}
+
+// override slick css
+
+.slick-slide {
+  position: relative;
+  margin-bottom: 2px;
+  border: 1px solid white;
+
+  .news-title {
+    position: absolute;
+  }
+}

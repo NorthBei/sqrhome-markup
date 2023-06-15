@@ -1,0 +1,37 @@
+extends @templates/banner.pug
+
+block prepend cap
+  - var titleTW = "關於我們";
+  - var titleJP = "私たちに関しては";
+
+block append styles
+  link(href=require("@styles/about.page.scss"), rel="stylesheet", type="text/css")
+
+block content
+  img#main-pic(src=require("@images/about-main.png"))
+
+  section.content-section
+    p 目前數位產業蓬勃發展，資訊接收速度是以往的三倍數成長，相對應消費者獲取及吸收品牌資訊停留時間短暫，大環境造就所有傳統產業及品牌轉型，品牌該怎麼做?電商該如何獲利?轉型該怎麼轉???
+    p Square Home紅紅數位-
+    p 我們從不誇大其詞，堅持協助品牌做符合他們的事，在目前競爭激烈的大型廣告公司中脫穎而出。
+    p 一間很不聽話的廣告公司，您可以這麼形容我們!!
+    p 服務至上的廣告公司包含全方位數位環境建置到整合到轉型，所有公司成員均有數位廣告背景，堅持幫客戶做到最適合他們的規劃，並依據數據佐證我們的策略帶領客戶走向適合他們的道路。
+    p 如果你要優質的創意，好的策略及數位環境的知識先驅
+    p 如果你是一個想要有更高目標理想的品牌想要獲取更多的內容
+    p 如果你想要的是 更好
+
+    p 紅紅數位 94適合你 881
+
+  section.content-section
+    p The current digital industry growth flourish, the information received speed is the previous three times faster than the past.
+    p Consumer access and absorption of brand information stay a short time,
+    p The environment force all the traditional industries and brand transformation,
+    p But how to do? How to make profit ? How do we start?
+    p We never exaggerated, insisted that the brand to do with their business, in the current highly competitive large-scale agents stand out.
+    p A very disobedient agent, you can describe us so !!
+    p Service-oriented agency include a full range of digital environments to integration into a transformation, all members of the company have a number of advertising background, insist to help customers do the most suitable for their planning, and based on data to support our strategy to lead customers to their way.
+    p If you want high quality creative, good strategy and digital environment knowledge pioneer
+    p If you are a brand you want to have a higher goal ideal, want to get more content
+    p If you want is better
+
+    p Square Home Digital is the only option

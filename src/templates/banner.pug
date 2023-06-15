@@ -1,0 +1,10 @@
+extends ./base.pug
+
+block append styles
+  link(href=require("@styles/banner.template.scss"), rel="stylesheet", type="text/css")
+
+block cap
+  #banner
+    #titles.container
+      h1 #{ titleTW }
+      h4 #{ titleJP }

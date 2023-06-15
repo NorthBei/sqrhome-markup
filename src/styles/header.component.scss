@@ -1,0 +1,102 @@
+@use './rwd.mixins' as rwd;
+
+#nav {
+  padding: 0;
+  margin: 24px 40px;
+  height: 23px;
+  box-sizing: content-box;
+  position: relative;
+
+  .navbar-brand {
+    height: inherit;
+    padding: 0;
+  }
+  
+  .nav-item {
+    width: 100px;
+    text-align: center;
+    height: 30px;
+    line-height: 30px;
+  }
+  
+  .navbar-nav .nav-link {
+    color: black;
+    font-size: 14px;
+    transition: all 0.5s;
+    padding: 0;
+
+    &:hover {
+      color: #f29600;
+      font-size: 16px;
+    }
+  }
+  
+  @include rwd.pad-landscape {
+    margin: 15px;
+    height: 44px;
+  }
+  
+  #nav-phone-cover {
+    height: 44px;
+    width: 44px;
+    position: absolute;
+    top: 0;
+    right: 0;
+    z-index: 51;
+    display: flex;
+    justify-content: flex-end;
+    align-items: flex-start;
+    padding: 10px;
+    transition: all 0.4s;
+    outline: none;
+
+    .navbar-toggler-icon {
+      transition: inherit;
+    }
+
+    &.collapse {
+      .navbar-toggler-icon {
+        transform: rotate(-90deg);
+      }
+    }
+  }
+  
+  
+  #nav-bar {
+    @include rwd.pad-landscape {
+      height: 44px;
+      width: 44px;
+      position: absolute;
+      top: 0;
+      right: 0;
+      background: white;
+      box-shadow: 0 0 4px rgb(156 151 146 / 3400%);
+      overflow: hidden;
+      z-index: 50;
+
+      .navbar-nav {
+        padding: 44px 0;
+      }
+    }
+  }
+
+  #fb-redirect {
+    margin-left: 20px;
+    width: auto;
+  }
+  
+  /* facebook SVG */
+  
+  #the-fb-icon { 
+    transition: background-color, color 0.4s ease;
+
+    &:hover svg circle {
+      fill: #3470b6;
+    }
+
+    &:hover svg path {
+      fill: white;
+    }
+  }
+}
+

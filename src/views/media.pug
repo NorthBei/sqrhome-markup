@@ -1,0 +1,59 @@
+extends @templates/banner.pug
+
+block prepend cap
+  - var titleTW = "影音寫真集";
+  - var titleJP = "オーディオとビデオの収集";
+
+block append styles
+  link(href=require("@styles/media.page.scss"), rel="stylesheet", type="text/css")
+
+block append scripts
+  script(defer, src=require("@js/media.page.js"), type="text/javascript")
+
+block content
+  #type-filter.type-filter.dropdown.mt-3
+    button#dropdown-menu-btn.btn.dropdown-toggle(
+      aria-expanded="false",
+      aria-haspopup="true",
+      data-toggle="dropdown",
+      type="button"
+    )
+      | BY TYPE
+      span.d-sm-inline-block.d-none ：
+    .dropdown-menu(aria-labelledby="dropdownMenuButton")
+      a.dropdown-item.active(data-filter="[\"A\",\"B\"]", href="#") All
+      a.dropdown-item(data-filter="[\"A\"]", href="#") A
+      a.dropdown-item(data-filter="[\"B\"]", href="#") B
+
+  #media-blocks.row.pt-5
+    .media-block-wrapper.col-lg-4.col-md-6.col-sm-12(data-groups="[\"A\"]")
+      a.media-block(href="./media-content.html")
+        img.img-fluid(src=require("@images/media-test.png"))
+        p.media-text A麻吉弟弟 [ MACHI DIDI 2.0 (大人物) ft. 熊仔 ] Official Audio
+
+    .media-block-wrapper.col-lg-4.col-md-6.col-sm-12(data-groups="[\"B\"]")
+      a.media-block(href="./media-content.html")
+        img.img-fluid(src=require("@images/media-test.png"))
+        p.media-text B麻吉弟弟 [ MACHI DIDI 2.0 (大人物) ft. 熊仔 ] Official Audio
+
+    .media-block-wrapper.col-lg-4.col-md-6.col-sm-12(data-groups="[\"A\"]")
+      a.media-block(href="./media-content.html")
+        img.img-fluid(src=require("@images/media-test.png"))
+        p.media-text A麻吉弟弟 [ MACHI DIDI 2.0 (大人物) ft. 熊仔 ] Official Audio
+
+    .media-block-wrapper.col-lg-4.col-md-6.col-sm-12(data-groups="[\"A\"]")
+      a.media-block(href="./media-content.html")
+        img.img-fluid(src=require("@images/media-test.png"))
+        p.media-text A麻吉弟弟 [ MACHI DIDI 2.0 (大人物) ft. 熊仔 ] Official Audio
+
+    .media-block-wrapper.col-lg-4.col-md-6.col-sm-12(data-groups="[\"B\"]")
+      a.media-block(href="./media-content.html")
+        img.img-fluid(src=require("@images/media-test.png"))
+        p.media-text B麻吉弟弟 [ MACHI DIDI 2.0 (大人物) ft. 熊仔 ] Official Audio
+
+    .media-block-wrapper.col-lg-4.col-md-6.col-sm-12(data-groups="[\"B\"]")
+      a.media-block(href="./media-content.html")
+        img.img-fluid(src=require("@images/media-test.png"))
+        p.media-text B麻吉弟弟 [ MACHI DIDI 2.0 (大人物) ft. 熊仔 ] Official Audio
+
+  +main-button("View All")

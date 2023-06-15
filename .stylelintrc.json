@@ -1,0 +1,13 @@
+{
+  "extends": "stylelint-config-standard-scss",
+  "overrides": [
+    {
+      "files": ["**/*.scss"]
+    }
+  ],
+  "rules": {
+    "indentation": 2,
+    "font-family-no-missing-generic-family-keyword": null,
+    "block-opening-brace-space-before": "always"
+  }
+}

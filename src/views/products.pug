@@ -1,0 +1,99 @@
+extends @templates/banner.pug
+
+mixin dialog(text1,text2)
+  | <svg width="217" height="210" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink"><defs><path id="b" d="M48.427 190l36.602-35.693 60.554-7.392 47.016-32.147L199 56.7l-32.766-39.15L116.99 0 48.427 8.167 9.381 41.46 0 95l21.398 34.251 27.03 17.664z"/><filter x="-9%" y="-5.8%" width="118.1%" height="119%" filterUnits="objectBoundingBox" id="a"><feMorphology radius="4" operator="dilate" in="SourceAlpha" result="shadowSpreadOuter1"/><feOffset dy="7" in="shadowSpreadOuter1" result="shadowOffsetOuter1"/><feGaussianBlur stdDeviation="3.5" in="shadowOffsetOuter1" result="shadowBlurOuter1"/><feComposite in="shadowBlurOuter1" in2="SourceAlpha" operator="out" result="shadowBlurOuter1"/><feColorMatrix values="0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0.5 0" in="shadowBlurOuter1"/></filter></defs><g fill="none" fill-rule="evenodd"><g transform="translate(9 5)"><use fill="#000" filter="url(#a)" xlink:href="#b"/><use stroke="#000" stroke-width="8" fill="#FFF" xlink:href="#b"/></g><text xmlns="http://www.w3.org/2000/svg" font-family="NotoSansCJKtc-Bold, Noto Sans CJK TC" font-size="14" font-weight="bold" fill="#000" y="57" x="47%" text-anchor="middle" transform="translate(9 5)">一段關於愛與美麗的</text><text font-family="NotoSansCJKtc-Bold, Noto Sans CJK TC" font-size="41" font-weight="bold" fill="#000" y="107" x="47%" text-anchor="middle" transform="translate(9 5)">大平台</text></g></svg>
+  //-svg(width='217', height='210', xmlns='http://www.w3.org/2000/svg', xmlns:xlink='http://www.w3.org/1999/xlink')
+    defs
+    path#b(fill='white', d='M48.427 190l36.602-35.693 60.554-7.392 47.016-32.147L199 56.7l-32.766-39.15L116.99 0 48.427 8.167 9.381 41.46 0 95l21.398 34.251 27.03 17.664z')
+    filter#a(x='-9%', y='-5.8%', width='118.1%', height='119%', filterunits='objectBoundingBox')
+    femorphology(radius='4', operator='dilate', in='SourceAlpha', result='shadowSpreadOuter1')
+    feoffset(dy='7', in='shadowSpreadOuter1', result='shadowOffsetOuter1')
+    fegaussianblur(stddeviation='3.5', in='shadowOffsetOuter1', result='shadowBlurOuter1')
+    fecomposite(in='shadowBlurOuter1', in2='SourceAlpha', operator='out', result='shadowBlurOuter1')
+    fecolormatrix(values='0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0.5 0', in='shadowBlurOuter1')
+    g(fill='none', fill-rule='evenodd')
+    g(transform='translate(9 5)')
+    use(fill='#000', filter='url(#a)', xlink:href='#b')
+    use(stroke='#000', stroke-width='8', fill='#FFF', xlink:href='#b')
+    text(xmlns='http://www.w3.org/2000/svg', font-family='NotoSansCJKtc-Bold, Noto Sans CJK TC', font-size='14', font-weight='bold', fill='#000', y='57', x='47%', text-anchor='middle', transform='translate(9 5)')
+    | 一段關於愛與美麗的
+    text(font-family='NotoSansCJKtc-Bold, Noto Sans CJK TC', font-size='41', font-weight='bold', fill='#000', y='107', x='47%', text-anchor='middle', transform='translate(9 5)')
+    | 大平台
+
+block prepend cap
+  - var titleTW = "數位產品";
+  - var titleJP = "デジタル製品";
+
+block append styles
+  link(href=require("slick-carousel/slick/slick.css"), rel="stylesheet", type="text/css")
+  link(href=require("@styles/products.page.scss"), rel="stylesheet")
+
+block append scripts
+  script(src=require("@js/products.page.js"))
+
+block content
+  #box-wrapper.row
+    .product.col-md-3.col-sm-4.col-6.mb-5
+      .product-dialog
+        +dialog
+      .product-img.mb-2
+        img.product-logo(alt="", src=require("@images/logo.png"))
+      .product-info
+        .product-name 愛指尖 iGorgeous-美甲樂園
+        a.product-url(href="http://www.i-gorgeous.com/") http://www.i-gorgeous.com/
+
+    .product.col-md-3.col-sm-4.col-6.mb-5
+      .product-dialog
+        +dialog
+      .product-img.mb-2
+        img.product-logo(alt="", src=require("@images/logo.png"))
+      .product-info
+        .product-name 愛指尖 iGorgeous-美甲樂園
+        a.product-url(href="http://www.i-gorgeous.com/") http://www.i-gorgeous.com/
+
+    .product.col-md-3.col-sm-4.col-6.mb-5
+      .product-dialog
+        +dialog
+      .product-img.mb-2
+        img.product-logo(alt="", src=require("@images/logo.png"))
+      .product-info
+        .product-name 愛指尖 iGorgeous-美甲樂園
+        a.product-url(href="http://www.i-gorgeous.com/") http://www.i-gorgeous.com/
+
+    .product.col-md-3.col-sm-4.col-6.mb-5
+      .product-dialog
+        +dialog
+      .product-img.mb-2
+        img.product-logo(alt="", src=require("@images/logo.png"))
+      .product-info
+        .product-name 愛指尖 iGorgeous-美甲樂園
+        a.product-url(href="http://www.i-gorgeous.com/") http://www.i-gorgeous.com/
+
+    .product.col-md-3.col-sm-4.col-6.mb-5
+      .product-dialog
+        +dialog
+      .product-img.mb-2
+        img.product-logo(alt="", src=require("@images/logo.png"))
+      .product-info
+        .product-name 愛指尖 iGorgeous-美甲樂園
+        a.product-url(href="http://www.i-gorgeous.com/") http://www.i-gorgeous.com/
+
+  #logo-box-cluster.row.d-md-none.mb-5
+    .col-6.mb-2
+      a.logo-box(href="http://www.i-gorgeous.com/")
+        img(alt="", src=require("@images/logo.png"))
+    .col-6.mb-2
+      a.logo-box(href="http://www.i-gorgeous.com/")
+        img(alt="", src=require("@images/logo.png"))
+    .col-6.mb-2
+      a.logo-box(href="http://www.i-gorgeous.com/")
+        img(alt="", src=require("@images/logo.png"))
+    .col-6.mb-2
+      a.logo-box(href="http://www.i-gorgeous.com/")
+        img(alt="", src=require("@images/logo.png"))
+    .col-6.mb-2
+      a.logo-box(href="http://www.i-gorgeous.com/")
+        img(alt="", src=require("@images/logo.png"))
+    .col-6.mb-2
+      a.logo-box(href="http://www.i-gorgeous.com/")
+        img(alt="", src=require("@images/logo.png"))
