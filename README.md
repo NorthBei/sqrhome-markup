@@ -164,6 +164,7 @@ yarn serve
 - Webpack
   - [How to use Pug & Sass in Webpack 5 - 2022 🐶](https://dev.to/thiagoow/how-to-use-pug-sass-in-webpack-5-2022-5cpk)
   - [pug-plugin](https://www.npmjs.com/package/pug-plugin#recipe-inline-js)
+    - [How to use responsive images with Pug](https://webdiscus.github.io/pug-plugin/responsive-image/)
   - [copy-webpack-plugin](https://webpack.js.org/plugins/copy-webpack-plugin/)
 - Pug
   - [pug offical website](https://pugjs.org/api/getting-started.html)
